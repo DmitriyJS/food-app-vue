@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <button @click="showLog({ a: `asdf`, b: 22 })">Home</button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+
+type aaa = {
+  a: string;
+  b: number;
+};
+
+interface test extends aaa {
+  с?: any;
+}
 
 export default defineComponent({
   name: "HomeView",
-  components: {
-    HelloWorld,
+  components: {},
+  methods: {
+    showLog(num: test) {
+      console.log(num);
+    },
   },
 });
 </script>
